@@ -51,17 +51,17 @@ void setup() {
 void loop() {
   iaqUpdate();
   bme280_indoorSample();
-  delay(1500);
+  delay(5000);
 }
 
 //Update and print data from iAQ
 void iaqUpdate() {
   String status;
-  float pred, ohm, tvoc;
+  int pred, ohm, tvoc;
 
   iaq.readRegisters();
 
-  status = iaq.getStatus()
+  status = iaq.getStatus();
   pred = iaq.getPrediction();
   ohm = iaq.getResistance();
   tvoc = iaq.getTVOC();
@@ -69,8 +69,9 @@ void iaqUpdate() {
   Serial.print("{");
   Serial.print("'sensor':'iAQ'");
   Serial.print(",");
-  Serial.print("'status':");
+  Serial.print("'status':'");
   Serial.print(status);
+  Serial.print("',");
   Serial.print("'pred':");
   Serial.print(pred);
   Serial.print(",");
@@ -83,17 +84,9 @@ void iaqUpdate() {
   Serial.println();
 }
 
-//Numbers printed cleanly
-void printFormattedFloat(float x, uint8_t precision) {
-  char buffer[10];
-  dtostrf(x, 7, precision, buffer);
-  Serial.print(buffer);
-}
-
 void printCompensatedMeasurements(void) {
   float temp, humidity, pressure, pressureMoreAccurate;
   double tempMostAccurate, humidityMostAccurate, pressureMostAccurate;
-  char buffer[80]; // Do we need this?
 
   temp      = BME280.getTemperature();
   humidity  = BME280.getHumidity();
@@ -110,24 +103,24 @@ void printCompensatedMeasurements(void) {
   Serial.print("'mode':'compensated'");
   Serial.print(",");
   Serial.print("'temperature':");
-  printFormattedFloat(temp, 2);
+  Serial.print(temp);
   Serial.print("'temperature_most_accurate':");
-  printFormattedFloat(tempMostAccurate, 2);
+  Serial.print(tempMostAccurate);
   Serial.print(",");
   Serial.print("'humidity':");
-  printFormattedFloat(humidity, 2);
+  Serial.print(humidity);
   Serial.print(",");
   Serial.print("'humidity_most_accurate':");
-  printFormattedFloat(humidityMostAccurate, 2);
+  Serial.print(humidityMostAccurate);
   Serial.print(",");
   Serial.print("'pressure':");
-  printFormattedFloat(pressure, 2);
+  Serial.print(pressure);
   Serial.print(",");
   Serial.print("'pressure_more_accurate':");
-  printFormattedFloat(pressureMoreAccurate, 2);
+  Serial.print(pressureMoreAccurate);
   Serial.print(",");
   Serial.print("'pressure_most_accurate':");
-  printFormattedFloat(pressureMostAccurate, 2);
+  Serial.print(pressureMostAccurate);
   Serial.print("}");
   Serial.println();
 }
@@ -167,24 +160,24 @@ void bme280_forcedSample() {
   Serial.print("'mode':'forced'");
   Serial.print(",");
   Serial.print("'temperature':");
-  printFormattedFloat(temp, 2);
+  Serial.print(temp);
   Serial.print("'temperature_most_accurate':");
-  printFormattedFloat(tempMostAccurate, 2);
+  Serial.print(tempMostAccurate);
   Serial.print(",");
   Serial.print("'humidity':");
-  printFormattedFloat(humidity, 2);
+  Serial.print(humidity);
   Serial.print(",");
   Serial.print("'humidity_most_accurate':");
-  printFormattedFloat(humidityMostAccurate, 2);
+  Serial.print(humidityMostAccurate);
   Serial.print(",");
   Serial.print("'pressure':");
-  printFormattedFloat(pressure, 2);
+  Serial.print(pressure);
   Serial.print(",");
   Serial.print("'pressure_more_accurate':");
-  printFormattedFloat(pressureMoreAccurate, 2);
+  Serial.print(pressureMoreAccurate);
   Serial.print(",");
   Serial.print("'pressure_most_accurate':");
-  printFormattedFloat(pressureMostAccurate, 2);
+  Serial.print(pressureMostAccurate);
   Serial.print("}");
   Serial.println();
 }
@@ -206,5 +199,4 @@ void bme280_indoorSample() {
   // read out the data - must do this before calling the getxxxxx routines
   BME280.readMeasurements();
   printCompensatedMeasurements();
-  Serial.println();
 }
