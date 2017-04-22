@@ -23,7 +23,7 @@ $ sudo apt-get install -y nodejs
 
 Install python-serial:
 ```
-sudo apt-get install minicom python-serial
+$ sudo apt-get install python-serial
 ```
 
 #### Serial
