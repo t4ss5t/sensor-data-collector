@@ -27,8 +27,8 @@ port.on('data', function (data) {
   	var timestamp = Date.now();
   	if( obj && obj.sensor ) {
 		obj.timestamp = timestamp;
-		//device.publish('mod_1023_measure_data', JSON.stringify(obj));
-		device.publish('mod_1023_measure_data/' + obj.sensor, JSON.stringify(obj));
+		//device.publish('weather_shield_measure_data', JSON.stringify(obj));
+		device.publish('weather_shield_measure_data/' + obj.sensor, JSON.stringify(obj));
   	}
   } catch(e) {}
 });
