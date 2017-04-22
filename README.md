@@ -69,9 +69,13 @@ $ node get_serial.js
 ### Setup
 
 Install sdk:
-
 ```
 $ npm install aws-iot-device-sdk
 ```
 
 ## IBM Bluemix
+
+Install sdk:
+```
+$ npm install ibmiotf
+```
