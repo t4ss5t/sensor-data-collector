@@ -55,3 +55,14 @@ $ node get_serial.js
 
 #### Run script (in background)
 
+## AWS
+
+### Setup
+
+Install sdk:
+
+```
+$ npm install aws-iot-device-sdk
+```
+
+## IBM Bluemix
