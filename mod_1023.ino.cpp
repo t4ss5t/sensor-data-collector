@@ -104,6 +104,7 @@ void printCompensatedMeasurements(void) {
   Serial.print(",");
   Serial.print("'temperature':");
   Serial.print(temp);
+  Serial.print(",");
   Serial.print("'temperature_most_accurate':");
   Serial.print(tempMostAccurate);
   Serial.print(",");
@@ -161,6 +162,7 @@ void bme280_forcedSample() {
   Serial.print(",");
   Serial.print("'temperature':");
   Serial.print(temp);
+  Serial.print(",");
   Serial.print("'temperature_most_accurate':");
   Serial.print(tempMostAccurate);
   Serial.print(",");
