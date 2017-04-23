@@ -19,7 +19,7 @@ awsDevice.on('message', function(topic, payload) {
   console.log('message', topic, payload.toString());
 });
 
-var ibmDevice = new ibmIot.IotfDevice(credentialsIbm);
+var ibmDevice = new ibmIot.IotfDevice(ibmCredentials);
 
 ibmDevice.log.setLevel('info');
 ibmDevice.connect();
