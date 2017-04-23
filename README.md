@@ -75,6 +75,8 @@ $ npm install aws-iot-device-sdk
 
 ## IBM Bluemix
 
+### Setup
+
 Install service:
 ```
 $ curl -LO https://github.com/ibm-messaging/iot-raspberrypi/releases/download/1.0.2.1/iot_1.0-2_armhf.deb 
@@ -89,4 +91,31 @@ $ sudo nano /etc/iotsample-raspberrypi/device.cfg
 Install sdk:
 ```
 $ npm install ibmiotf
+```
+
+## Credentials
+
+### Transfer
+
+Transfer device specific file via SSH:
+```
+$ scp FILES pi@rpi-X:/home/pi/sensor-data-collector
+```
+
+Files to transfer:
+```
+.aws_credentials.json
+.ibm_credentials.json
+XYZ-certificate.pem.crt
+XYZ-public.pem.key
+XYZ-private.pem.key
+device.cfg
+VeriSign-Class\ 3-Public-Primary-Certification-Authority-G5.pem
+```
+
+### IBM
+
+Copy device config to etc:
+```
+sudo cp device.cfg /etc/iotsample-raspberrypi/device.cfg
 ```
