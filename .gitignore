@@ -32,6 +32,12 @@
 *.dSYM/
 *.su
 
+# node
+node_modules/
+
 # Credentials
 .aws_credentials
 .ibm_credentials
+*.crt
+*.pem
+*.key
