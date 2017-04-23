@@ -36,6 +36,7 @@
 node_modules/
 
 # Credentials
+device.cfg
 .aws_credentials.json
 .ibm_credentials.json
 *.crt
