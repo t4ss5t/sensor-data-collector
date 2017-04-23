@@ -73,7 +73,7 @@ void loop() {
     }
   }
 
-  if (counter % 5000 == 0) {
+  if (counter % 60000 == 0) {
     iaqUpdate();
     bme280_indoorSample();
   }
@@ -136,8 +136,8 @@ void printCompensatedMeasurements(void) {
   Serial.print("'mode':'compensated'");
   Serial.print(",");
   Serial.print("'temperature':");
-  Serial.print(",");
   Serial.print(temp);
+  Serial.print(",");
   Serial.print("'temperature_most_accurate':");
   Serial.print(tempMostAccurate);
   Serial.print(",");
