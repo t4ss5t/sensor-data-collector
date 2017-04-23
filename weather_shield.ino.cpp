@@ -18,6 +18,8 @@ void measure_htu21d() {
     weatherShield.HTU21D.read_temperature_and_relative_humidity(&temperature, &humidity); 
   
     Serial.print("{");
+    Serial.print("'event':'measurement'");
+    Serial.print(",");
     Serial.print("'sensor':'HTU21D'");
     Serial.print(",");
     Serial.print("'temperature':");
@@ -40,6 +42,8 @@ void measure_ms5637() {
     weatherShield.MS5637.read_temperature_and_pressure(&temperature, &pressure);
     
     Serial.print("{");
+    Serial.print("'event':'measurement'");
+    Serial.print(",");
     Serial.print("'sensor':'MS5637'");
     Serial.print(",");
     Serial.print("'temperature':");
@@ -64,6 +68,8 @@ void measure_ms8607() {
     weatherShield.MS8607.read_temperature_pressure_humidity( &temperature, &pressure, &humidity);
     
     Serial.print("{");
+    Serial.print("'event':'measurement'");
+    Serial.print(",");
     Serial.print("'sensor':'MS8607'");
     Serial.print(",");
     Serial.print("'temperature':");
@@ -88,6 +94,8 @@ void measure_tsys01() {
     weatherShield.TSYS01.read_temperature(&temperature);
     
     Serial.print("{");
+    Serial.print("'event':'measurement'");
+    Serial.print(",");
     Serial.print("'sensor':'TSYS01'");
     Serial.print(",");
     Serial.print("'temperature':");
@@ -107,6 +115,8 @@ void measure_tsd305() {
     weatherShield.TSD305.read_temperature_and_object_temperature(&temperature, &object_temperature);
     
     Serial.print("{");
+    Serial.print("'event':'measurement'");
+    Serial.print(",");
     Serial.print("'sensor':'TSD305'");
     Serial.print(",");
     Serial.print("'temperature':");
