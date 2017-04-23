@@ -117,5 +117,5 @@ VeriSign-Class\ 3-Public-Primary-Certification-Authority-G5.pem
 
 Copy device config to etc:
 ```
-sudo cp device.cfg /etc/iotsample-raspberrypi/device.cfg
+$ sudo cp device.cfg /etc/iotsample-raspberrypi/device.cfg
 ```
