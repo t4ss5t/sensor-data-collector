@@ -11,20 +11,24 @@ var ibmCredentials = require('./.ibm_credentials.json');
 
 var awsDevice = awsIot.device(awsCredentials);
 
+awsDevice.on('connect', function() {
+  console.log('AWS device connected');
+});
+
 awsDevice.on('message', function(topic, payload) {
   console.log('message', topic, payload.toString());
 });
 
-var deviceIbm = new Client.IotfDevice(credentialsIbm);
+var ibmDevice = new Client.IotfDevice(credentialsIbm);
 
-deviceIbm.log.setLevel('info');
-deviceIbm.connect();
+ibmDevice.log.setLevel('info');
+ibmDevice.connect();
 
-deviceIbm.on("connect", function () {
-  console.log("connected");
+ibmDevice.on("connect", function () {
+  console.log("IBM device connected");
 });
 
-deviceIbm.on("error", function (err) {
+ibmDevice.on("error", function (err) {
   console.log("Error : "+err);
 });
 

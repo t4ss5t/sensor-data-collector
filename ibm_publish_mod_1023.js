@@ -13,7 +13,7 @@ ibmDevice.log.setLevel('info');
 ibmDevice.connect();
 
 ibmDevice.on("connect", function () {
-  console.log("connected");
+  console.log("IBM device connected");
 });
 
 ibmDevice.on("error", function (err) {

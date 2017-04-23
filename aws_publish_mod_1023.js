@@ -9,6 +9,10 @@ var awsCredentials = require('./.aws_credentials.json');
 
 var awsDevice = awsIot.device(awsCredentials);
 
+awsDevice.on('connect', function() {
+  console.log('AWS device connected');
+});
+
 awsDevice.on('message', function(topic, payload) {
   console.log('message', topic, payload.toString());
 });
