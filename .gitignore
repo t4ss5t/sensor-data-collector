@@ -36,8 +36,8 @@
 node_modules/
 
 # Credentials
-.aws_credentials
-.ibm_credentials
+.aws_credentials.json
+.ibm_credentials.json
 *.crt
 *.pem
 *.key
