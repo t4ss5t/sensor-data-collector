@@ -1,22 +1,30 @@
 var SerialPort = require("serialport");
+var awsIot = require('aws-iot-device-sdk');
 var ibmIot = require("ibmiotf");
 
 // credentials
 
+var awsCredentials = require('/.aws_credentials.json');
 var ibmCredentials = require('/.ibm_credentials.json');
 
 // devices
 
-var ibmDevice = new ibmIot.IotfDevice(ibmCredentials);
+var awsDevice = awsIot.device(awsCredentials);
 
-ibmDevice.log.setLevel('info');
-ibmDevice.connect();
+awsDevice.on('message', function(topic, payload) {
+  console.log('message', topic, payload.toString());
+});
 
-ibmDevice.on("connect", function () {
+var deviceIbm = new Client.IotfDevice(credentialsIbm);
+
+deviceIbm.log.setLevel('info');
+deviceIbm.connect();
+
+deviceIbm.on("connect", function () {
   console.log("connected");
 });
 
-ibmDevice.on("error", function (err) {
+deviceIbm.on("error", function (err) {
   console.log("Error : "+err);
 });
 
@@ -34,12 +42,22 @@ port.on('error', function(err) {
 port.on('data', function (data) {
   try {
     var obj = JSON.parse( (data).replace(/'/g,'"') );
-
     console.log(obj);
-
     var timestamp = Date.now();
     if( obj && obj.event ) {
       obj.timestamp = timestamp;
+
+      obj.id = awsCredentials.clientId;
+      switch(obj.event) {
+        case 'button_pressed':
+          awsDevice.publish('mod_1023_measure_data/button', JSON.stringify(obj));
+          break;
+        case 'measurement':
+          awsDevice.publish('mod_1023_measure_data/' + obj.sensor, JSON.stringify(obj));
+          break;
+        default:
+          //awsDevice.publish('mod_1023_measure_data', JSON.stringify(obj));
+      }
 
       obj.id = ibmCredentials.id;
       switch(obj.event) {

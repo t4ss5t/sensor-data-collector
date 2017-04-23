@@ -31,3 +31,7 @@
 # Debug files
 *.dSYM/
 *.su
+
+# Credentials
+.aws_credentials
+.ibm_credentials
