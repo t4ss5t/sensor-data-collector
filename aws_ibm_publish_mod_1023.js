@@ -4,8 +4,8 @@ var ibmIot = require("ibmiotf");
 
 // credentials
 
-var awsCredentials = require('/.aws_credentials.json');
-var ibmCredentials = require('/.ibm_credentials.json');
+var awsCredentials = require('./.aws_credentials.json');
+var ibmCredentials = require('./.ibm_credentials.json');
 
 // devices
 

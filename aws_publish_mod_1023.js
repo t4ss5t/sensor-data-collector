@@ -3,7 +3,7 @@ var awsIot = require('aws-iot-device-sdk');
 
 // credentials
 
-var awsCredentials = require('/.aws_credentials.json');
+var awsCredentials = require('./.aws_credentials.json');
 
 // devices
 

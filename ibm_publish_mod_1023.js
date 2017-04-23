@@ -3,7 +3,7 @@ var ibmIot = require("ibmiotf");
 
 // credentials
 
-var ibmCredentials = require('/.ibm_credentials.json');
+var ibmCredentials = require('./.ibm_credentials.json');
 
 // devices
 
