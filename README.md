@@ -75,6 +75,17 @@ $ npm install aws-iot-device-sdk
 
 ## IBM Bluemix
 
+Install service:
+```
+$ curl -LO https://github.com/ibm-messaging/iot-raspberrypi/releases/download/1.0.2.1/iot_1.0-2_armhf.deb 
+$ sudo dpkg -i iot_1.0-2_armhf.deb 
+```
+
+Configure:
+```
+$ sudo nano /etc/iotsample-raspberrypi/device.cfg
+```
+
 Install sdk:
 ```
 $ npm install ibmiotf
