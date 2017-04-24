@@ -62,7 +62,12 @@ Open serial port and print data:
 $ node get_serial.js
 ```
 
-#### Run script (in background)
+#### Run scripts
+
+In background:
+```
+$ nohup node SCRIPT &:
+```
 
 ## AWS
 
